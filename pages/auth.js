@@ -1,9 +1,6 @@
 import React, { Component } from 'react';
-import { compose } from 'react-apollo';
 import Signin  from '../components/signin/Signin'
 import styled from 'styled-components';
-import { loginMutation } from '../grapqhl/mutations';
-
 
 const SigninWrapper = styled.div`
     grid-row: 2;
@@ -41,7 +38,6 @@ class Auth extends Component {
         this.setState({ [name]: value })
     }
 
-    verifyInput
 
     render() {
         const { emailInput, passwordInput } = this.state;
