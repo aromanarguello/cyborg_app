@@ -1,15 +1,7 @@
 import React, { Component } from 'react';
 import Signin  from '../components/signin/Signin'
 import styled from 'styled-components';
-
-const SigninWrapper = styled.div`
-    grid-row: 2;
-    div {
-        margin: 0 auto;
-        border-radius: 5px;
-        background-color: #fff;
-    }
-`;
+import { SigninWrapper } from '../components/styles/Credentials.styles';
 
 class Auth extends Component {
 
