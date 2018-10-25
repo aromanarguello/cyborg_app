@@ -16,6 +16,9 @@ const Signin = ({ inputOnChange, setUserInfo, emailInput, passwordInput }) => (
     <Mutation mutation={LOGIN_MUTATION}>
     {(login, { error, loading }) => (
         <CardContainer>
+            <div>
+                <img src={'../../static/logo.png'} />
+            </div>
             <form method="post" onSubmit={async (e) =>{
                 e.preventDefault()
                const { data: { login: { token, user: {
