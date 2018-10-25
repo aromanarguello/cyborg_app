@@ -1,3 +1,4 @@
+import React from 'react';
 import { CardContainer, InnerCardContainer, SubmitRow } from '../styles/Credentials.styles'
 import { Input, InputAdornment, Button, withStyles } from '@material-ui/core';
 import { LOGIN_MUTATION } from '../../grapqhl/mutations';
@@ -11,10 +12,6 @@ const styles = theme => ({
   },
 });
 
-function InputWithIcon(props) {
-  const { classes } = props;
-}
-
 const Signin = ({ inputOnChange, setUserInfo, emailInput, passwordInput }) => (
     <Mutation mutation={LOGIN_MUTATION}>
     {(login, { error, loading }) => (
@@ -27,7 +24,7 @@ const Signin = ({ inputOnChange, setUserInfo, emailInput, passwordInput }) => (
                    lastName,
                    email,
                    id
-               } } }} = await login({ variables })
+               } } }} = await login({ variables: { email: emailInput, password: passwordInput } })
                setUserInfo(firstName, middleName, lastName, email, id, token)
             }
          }>
