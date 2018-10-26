@@ -6,6 +6,7 @@ import withData from '../grapqhl/withData';
 
 const GlobalStyle = createGlobalStyle`
   body {
+    margin: 0;
     background: #6190e8;
     background: -webkit-linear-gradient(to right, #6190e8, #a7bfe8);
     background: linear-gradient(to right, #6190e8, #a7bfe8);
@@ -32,7 +33,7 @@ class MyApp extends App {
                 <ApolloProvider client ={apollo}>
                     <Pages>
                         <GlobalStyle />
-                        <Component { ...pageProps } />
+                        <Component />
                     </Pages>
                 </ApolloProvider>
             </Container>

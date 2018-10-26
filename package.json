@@ -9,9 +9,17 @@
     "apollo-boost": "^0.1.17",
     "apollo-client": "^2.4.3",
     "babel-core": "^6.26.3",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-styled-components": "^1.8.0",
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
+    "eslint": "^5.7.0",
+    "eslint-config-react-app": "^3.0.4",
+    "eslint-loader": "^2.1.1",
+    "eslint-plugin-flowtype": "^3.0.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-react": "^7.11.1",
     "graphql": "^14.0.2",
     "graphql-tag": "^2.10.0",
     "lodash.debounce": "^4.0.8",
@@ -46,7 +54,8 @@
     "babel-plugin-module-resolver": "^3.1.1",
     "casual": "^1.5.19",
     "enzyme-to-json": "^3.3.4",
-    "graphql-tools": "^4.0.2"
+    "graphql-tools": "^4.0.2",
+    "eslint-config-airbnb": "^17.0.0"
   },
   "babel": {
     "env": {
