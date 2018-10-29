@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
-import Signin  from '../components/signin/Signin'
-import styled from 'styled-components';
+import gql from 'graphql-tag';
+import { Mutation } from 'react-apollo';
+import Signin from '../components/signin/Signin';
 import { SigninWrapper } from '../components/styles/Credentials.styles';
 
-class Auth extends Component {
+const STATE_LOGIN_MUTATION = gql`
+    mutation {
+        toggleIsLoggedIn @client,
+    }
+`;
 
+class Auth extends Component {
     state = {
         firstName: String(),
         lastName: String(),
@@ -16,34 +22,33 @@ class Auth extends Component {
     }
 
     setUserInfo = (firstName, lastName, middleName, email, id, token) => {
-        sessionStorage.setItem('Authorization', token )
+        sessionStorage.setItem('token', token);
         this.setState({
             firstName,
             lastName,
             middleName,
             email,
-            id
-        })
+            id,
+        });
     }
 
     inputOnChange = ({ target: { name, value } }) => {
-        this.setState({ [name]: value })
+        this.setState({ [name]: value });
     }
-
 
     render() {
         const { emailInput, passwordInput } = this.state;
         return (
             <SigninWrapper>
-                    <Signin
-                        setUserInfo={this.setUserInfo}
-                        inputOnChange={this.inputOnChange}
-                        emailInput={emailInput}
-                        passwordInput={passwordInput}
-                    />
+                <Signin
+                    setUserInfo={this.setUserInfo}
+                    inputOnChange={this.inputOnChange}
+                    emailInput={emailInput}
+                    passwordInput={passwordInput}
+                />
             </SigninWrapper>
         );
     }
 }
 
-export default Auth
+export default Auth;
