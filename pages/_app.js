@@ -1,7 +1,7 @@
 import App, { Container } from 'next/app';
 import { createGlobalStyle } from 'styled-components';
-import Pages from '../components/layout/Pages';
 import { ApolloProvider } from 'react-apollo';
+import Pages from '../components/layout/Pages';
 import withData from '../grapqhl/withData';
 
 const GlobalStyle = createGlobalStyle`
@@ -11,33 +11,32 @@ const GlobalStyle = createGlobalStyle`
     background: -webkit-linear-gradient(to right, #6190e8, #a7bfe8);
     background: linear-gradient(to right, #6190e8, #a7bfe8);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
-  }`
+  }`;
 
 
 class MyApp extends App {
-    // static async getInitialProps({ Component, ctx }) {
-    //     let pageProps = {};
-    //     if (Component.getInitialProps) {
-    //         pageProps = await Component.getInitialProps(ctx);
-    //     }
-    //     // exposes the query to the user
-    //     pageProps.query = ctx.query;
-    //     return { pageProps };
-    // }
+    static async getInitialProps({ Component: { getInitialProps }, ctx }) {
+        let pageProps = {};
+        if (getInitialProps) {
+            pageProps = await getInitialProps(ctx);
+        }
+        // exposes the query to the user
+        pageProps.query = ctx.query;
+        return { pageProps };
+    }
 
     render() {
         const { Component, apollo, pageProps } = this.props;
-
         return (
             <Container>
-                <ApolloProvider client ={apollo}>
+                <ApolloProvider client={apollo}>
                     <Pages>
                         <GlobalStyle />
-                        <Component />
+                        <Component {...pageProps} />
                     </Pages>
                 </ApolloProvider>
             </Container>
-        )
+        );
     }
 }
 

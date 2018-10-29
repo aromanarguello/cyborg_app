@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-const Layer  = styled.div`
+const Layer = styled.div`
     width: 400px;
     height: 300px;
     border: 1px solid black;

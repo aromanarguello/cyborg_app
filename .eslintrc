@@ -29,8 +29,8 @@
   "spaced-comment": 0,
   "react/react-in-jsx-scope": 0,
   "react/jsx-filename-extension": 0,
-  "indent": ["error", 2],
-  "react/jsx-indent": ["error", 2],
-  "react/jsx-indent-props": ["error", 2]
+  "indent": ["error", 4],
+  "react/jsx-indent": ["error", 4],
+  "react/jsx-indent-props": ["error", 4]
   }
 }
